@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1px">
+        <tr>
+            <th>id</th>
+            <th>nome</th>
+            <th>descricao</th>
+            <th>preco</th>
+            <th>deletar</th>
+        </tr>
+        <tr>
+            <% for(var i=0; i<lista.length; i++) {%>
+        <tr>
+            <td><%= lista[i].id %></td>
+            <td><%= lista[i].titulo %></td>
+            <td><%= lista[i].descricao %></td>
+            <td><%= lista[i].preco %></td>
+            <td>
+                <form action="/produtos&id=<%= lista[i].id %>" method="post" name="excluir">
+                    <input type="hidden" name="id" value="<%= lista[i].id %>">
+                    <input type="submit" value="excluir">
+                </form>
+            </td>
+        </tr>
+            <% } %>
+        </tr>
+    </table>
+</body>
+</html>
